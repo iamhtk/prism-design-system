@@ -273,7 +273,7 @@ export function IntroPage() {
             <p className={styles.layerCardCount}>20 components</p>
             <div className={styles.layerPreview}>
               <div className={styles.previewOrganism}>
-                <Card title="Innovator showcase" titleColor="primary" width="260px">
+                <Card title="Innovator showcase" titleColor="primary" width="100%">
                   <p className={styles.organismPreviewBody}>Preview body</p>
                 </Card>
               </div>
