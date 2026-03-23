@@ -1,0 +1,108 @@
+.wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-family-body);
+}
+
+.caption {
+  padding: var(--space-200) var(--space-0);
+  font-size: var(--font-size-body-xs);
+  font-weight: var(--font-weight-regular);
+  color: var(--text-default-caption);
+  text-align: left;
+}
+
+.stickyHeader thead th {
+  position: sticky;
+  top: var(--space-0);
+  z-index: 1;
+  background-color: var(--color-neutral-900);
+}
+
+.headRow {
+  background-color: var(--color-neutral-900);
+  border-bottom-width: var(--border-width-sm);
+  border-bottom-style: solid;
+  border-bottom-color: var(--color-primary-default);
+}
+
+.th {
+  padding: var(--space-300) var(--space-400);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-default-headings);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.thSortable {
+  cursor: pointer;
+}
+
+.headerButton {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-100);
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.headerButton:focus {
+  outline: none;
+}
+
+.headerButton:focus-visible {
+  outline: var(--border-width-sm) solid var(--color-primary-default);
+  outline-offset: var(--space-50);
+}
+
+.sortIcons {
+  font-size: var(--font-size-body-xs);
+  font-weight: var(--font-weight-regular);
+  color: var(--text-default-caption);
+}
+
+.sortIconsActive {
+  font-size: var(--font-size-body-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary-default);
+}
+
+.td {
+  padding: var(--space-300) var(--space-400);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  color: var(--text-default-body);
+  text-align: left;
+  vertical-align: middle;
+  border-bottom-width: var(--border-width-xs);
+  border-bottom-style: solid;
+  border-bottom-color: var(--color-table-row-divider);
+}
+
+.row:hover .td {
+  background-color: var(--color-table-row-hover);
+}
+
+.rowStriped:nth-child(even) .td {
+  background-color: var(--color-table-row-striped);
+}
+
+.rowStriped:nth-child(even):hover .td {
+  background-color: var(--color-table-row-hover);
+}

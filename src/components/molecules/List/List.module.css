@@ -1,0 +1,101 @@
+.list {
+  width: 100%;
+  margin: var(--space-0);
+  padding: var(--space-0);
+  list-style: none;
+  font-family: var(--font-family-body);
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-300);
+  margin: var(--space-0);
+  text-decoration: none;
+  color: inherit;
+}
+
+.sizeSm {
+  padding: var(--space-200) var(--space-300);
+}
+
+.sizeMd {
+  padding: var(--space-300) var(--space-400);
+}
+
+.sizeLg {
+  padding: var(--space-400) var(--space-500);
+}
+
+.variantBordered .item + .item {
+  border-top: var(--border-width-xs) solid var(--color-table-row-divider);
+}
+
+.variantStriped .item:nth-child(even) {
+  background-color: var(--color-table-row-striped);
+}
+
+.iconSlot {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-500);
+  height: var(--space-500);
+  font-size: var(--space-500);
+  line-height: 1;
+  color: var(--text-default-caption);
+}
+
+.body {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: left;
+}
+
+.label {
+  margin: var(--space-0);
+  font-size: var(--font-size-body-md);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  color: var(--text-default-body);
+}
+
+.labelActive {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary-default);
+}
+
+.description {
+  margin: var(--space-0);
+  margin-top: var(--space-100);
+  font-size: var(--font-size-body-xs);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  color: var(--text-default-caption);
+}
+
+.action {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.interactive:hover:not(.disabled) {
+  background-color: var(--color-list-row-hover);
+  cursor: pointer;
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.item:focus {
+  outline: none;
+}
+
+.interactive.item:focus-visible {
+  outline: var(--border-width-sm) solid var(--color-primary-default);
+  outline-offset: calc(-1 * var(--border-width-xs));
+}

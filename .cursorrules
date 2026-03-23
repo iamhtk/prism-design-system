@@ -1,0 +1,265 @@
+# CWPC Design System — Cursor Rules
+# Drop this file at the root of your project as `.cursorrules`
+# Cursor will follow these rules for every component it generates.
+
+## IDENTITY
+You are building components for the CWPC (Catastrophic Wildfire Prevention Consortium)
+design system. This is a React + CSS Custom Properties stack.
+
+---
+
+## ABSOLUTE RULES — NEVER BREAK THESE
+
+1. **No hardcoded values.** Every color, spacing, border-radius, border-width,
+   font-size, font-weight, and line-height must use a CSS custom property from
+   `cwpc-tokens.css`. If a value is not in that file, stop and ask.
+
+2. **No inline styles for design values.** Do not use `style={{ color: '#FF6701' }}`.
+   Use CSS classes or CSS Modules that reference the custom properties.
+
+3. **No Tailwind guesses.** Do not invent spacing or color values using Tailwind
+   arbitrary values like `text-[#FF6701]` or `p-[13px]`. Use the token file.
+
+4. **One component per file.** Each component lives in its own file with a
+   matching `.module.css` for its styles.
+
+5. **Props over hardcoded variants.** All variants (size, type, state) must be
+   controlled by props, not duplicated into separate components.
+
+---
+
+## TOKEN REFERENCE CHEATSHEET
+
+### Colors
+- Primary brand:     `var(--color-primary-default)` → #FF6701 (orange)
+- Primary hover:     `var(--color-interactive-primary-hover)` → #FF8534
+- Primary active:    `var(--color-interactive-primary-active)` → #E85E01
+- Primary subtle bg: `var(--color-interactive-primary-subtle)` → #FFF0E6
+- Secondary:         `var(--color-interactive-secondary)` → #1A78FF (blue)
+- Error:             `var(--color-error-default)` → #FF270D
+- Warning:           `var(--color-warning-default)` → #FFB020
+- Success:           `var(--color-success-default)` → #65A637 (green)
+- Information:       `var(--color-information-default)` → #0D72FF (blue)
+- Tertiary:          `var(--color-tertiary-default)` → #FFAC0D (amber)
+- Disabled:          `var(--color-disabled-default)` → #8D8D8D
+
+### Text
+- Body text (dark bg):    `var(--text-default-body)` → white
+- Heading (dark bg):      `var(--text-default-headings)` → white
+- Caption:                `var(--text-default-caption)` → #B6B6B6
+- Placeholder:            `var(--text-default-placeholder)` → #C4C4C4
+- On light/color surface: `var(--text-on-color-body)` → black
+
+### Spacing (use --space-{n})
+- 4px  → `var(--space-100)`
+- 8px  → `var(--space-200)`
+- 12px → `var(--space-300)`
+- 16px → `var(--space-400)`
+- 20px → `var(--space-500)`
+- 24px → `var(--space-600)`
+- 32px → `var(--space-800)`
+
+### Border Radius
+- Sharp:  `var(--border-radius-none)` → 0
+- Slight: `var(--border-radius-sm)` → 2px
+- Medium: `var(--border-radius-md)` → 4px
+- Soft:   `var(--border-radius-lg)` → 8px
+
+### Border Width
+- Standard: `var(--border-width-xs)` → 1px
+- Focus:    `var(--border-width-sm)` → 2px
+
+### Font Sizes
+- Body default:  `var(--font-size-body-md)` → 16px
+- Body small:    `var(--font-size-body-sm)` → 14px
+- Body xs:       `var(--font-size-body-xs)` → 12px
+- Body large:    `var(--font-size-body-lg)` → 18px
+
+### Font Weights
+- Regular:  `var(--font-weight-regular)` → 400
+- Medium:   `var(--font-weight-medium)` → 500
+- Semibold: `var(--font-weight-semibold)` → 600
+- Bold:     `var(--font-weight-bold)` → 700
+
+---
+
+## COMPONENT STRUCTURE TEMPLATE
+
+Every component must follow this pattern:
+
+```tsx
+// ComponentName.tsx
+import styles from './ComponentName.module.css';
+
+interface ComponentNameProps {
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  disabled?: boolean;
+  children: React.ReactNode;
+}
+
+export const ComponentName = ({
+  variant = 'primary',
+  size = 'md',
+  disabled = false,
+  children,
+}: ComponentNameProps) => {
+  return (
+    <div
+      className={[
+        styles.root,
+        styles[variant],
+        styles[size],
+        disabled ? styles.disabled : '',
+      ].join(' ')}
+    >
+      {children}
+    </div>
+  );
+};
+```
+
+```css
+/* ComponentName.module.css */
+.root {
+  /* Base styles using tokens only */
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-body-md);
+  font-weight: var(--font-weight-medium);
+}
+
+.primary {
+  background-color: var(--color-primary-default);
+  color: var(--text-on-color-body);
+}
+
+.primary:hover:not(.disabled) {
+  background-color: var(--color-interactive-primary-hover);
+}
+
+.disabled {
+  background-color: var(--color-disabled-default);
+  color: var(--color-disabled-subtle);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+```
+
+---
+
+## STATES — ALWAYS IMPLEMENT ALL OF THESE
+
+For every interactive component, implement:
+- `default` — resting state
+- `hover` — use the `-hover` token variant
+- `active` / `pressed` — use the `-active` token variant
+- `focus` — use `outline: var(--border-width-sm) solid var(--color-primary-default)`
+- `disabled` — use `var(--color-disabled-*)` tokens, add `aria-disabled`
+- `error` (forms only) — use `var(--color-error-*)` tokens
+
+---
+
+## FIGMA MCP USAGE
+
+When given a Figma node via MCP:
+- Use it for **visual structure and layout only**
+- Extract: anatomy, spacing relationships, layer hierarchy
+- Do NOT extract: raw hex values, pixel sizes as literals
+- Map everything you observe back to the nearest token in `cwpc-tokens.css`
+
+---
+
+## COMPONENTS ALREADY BUILT — DO NOT REBUILD
+
+These components exist and are confirmed correct. Reference them as patterns when building new ones.
+
+### Button
+- File: `Button.tsx` + `Button.module.css`
+- Props: `type` (default | outlined | transparent), `status` (default | hover | pressed | focus | disabled), `iconLeft`, `iconRight`, `label`
+- Pill shape: `border-radius: 50px` (component-specific override, NOT `--border-radius-lg`)
+- Padding: `var(--space-600)` horizontal, `var(--space-400)` vertical
+- Gap between icon and label: `10px`
+- Font: Work Sans Regular, `var(--font-size-h6)` (19.2px)
+- Default bg: `var(--color-primary-default)`, text: `var(--text-on-color-body)`
+- Outlined: white bg, `var(--color-primary-default)` border + text
+- Transparent: no bg, `var(--color-primary-default)` text
+- Hover: `var(--color-interactive-primary-hover)` bg
+- Pressed: `var(--color-interactive-primary-active)` bg + inset shadow
+- Focus: 2px orange outline ring OUTSIDE the button bounds
+- Disabled: `#E0E0E0` bg, `var(--color-disabled-default)` border + text
+- Also has green variant (success) and blue variant (information) used in Cards
+
+### Label
+- File: `Label.tsx`
+- Props: `type` (default | required), `label`, `icon`
+- Default: label text + help_outline icon (20px)
+- Required: same + red asterisk `*` positioned at left[-11px]
+- Font: Work Sans Regular 16px, white text
+
+### Field
+- File: `Field.tsx`
+- Props: `status` (default | hover | focus | disabled + variants), `iconLeft`, `iconRight`, `label`
+- Base: white bg, 1px `var(--color-disabled-subtle)` border, `var(--border-radius-md)` radius
+- Padding: `var(--space-300)` vertical (8px), `var(--space-300)` horizontal (12px)
+- Hover: orange-tint bg (`#FFD0B0`), orange border
+- Focus: same as default + 2px orange outline ring outside
+- Disabled: `#E0E0E0` bg, `#717171` border, grey text
+
+### Input
+- File: `Input.tsx`
+- Composed of: Label + Field + hint text
+- Props: `status` (default | email | password), `hintText`
+- Hint text: Work Sans Regular 11.1px, white
+- Stacks vertically with `var(--space-200)` gap (8px)
+
+### Forms
+- File: `Forms.tsx`
+- Dark card container: `#121212` bg, `border-radius: 8px`, white glow shadow
+- Composed of multiple Input components + Button components
+- Props: `header`, `headerText`, `information`, `informationText`, `footer`, `footerText1`, `footerText2`
+- Internal gap between fields: `var(--space-1000)` (40px)
+
+### Card (content)
+- File: `Card.tsx`
+- Dark card container: same as Forms
+- Contains: orange heading (Bold, 40px), hero image (rounded-10px), text hierarchy, Buttons, link footer
+- Text hierarchy: orange heading → amber subheading (`var(--color-tertiary-default)`) → green label (`var(--color-success-default)`) → white body
+- Props: `header`, `showImage`, `label1/2/3/4`, `info1/2/3`, various text props
+- Variant2: adds `4px` green border (`var(--color-success-default)`)
+
+### Accordion Item (Component)
+- File: `AccordionItem.tsx`
+- Props: `status` (default | Expanded), `scorecardHeader`, `scorecardInfo`
+- Collapsed: `103px` height, dark bg, `#484848` 2px border, `border-radius: var(--space-400)` (16px)
+- Expanded: `451px` height, same container + body text visible
+- Icon: orange `add_circle` 40px on the right
+- Used inside the Scorecard Overview Card
+
+---
+
+## COMPONENTS STILL TO BUILD
+
+Phase 1 — Primitives:
+  Link, Badge, Tag, Loader
+
+Phase 2 — Form Inputs:
+  Checkbox, Radio Button, Switch, Text Area
+
+Phase 3 — Controls:
+  Button Group, Social Media Buttons, Progress Bar, Progress Circle
+
+Phase 4 — Navigation:
+  Tab Bar, Breadcrumb, Menu Items
+
+Phase 5 — Complex:
+  Table
+
+---
+
+## WHAT TO DO IF UNSURE
+
+If a design value from Figma does not map cleanly to a token:
+1. Stop
+2. Output a comment: `/* TODO: no matching token for [value] — confirm with designer */`
+3. Use the closest token as a placeholder
+4. Do not invent a new value

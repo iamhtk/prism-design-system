@@ -1,0 +1,131 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.entry {
+  display: flex;
+  gap: 0;
+  padding-bottom: 20px;
+}
+
+.entry:last-child {
+  padding-bottom: 0;
+}
+
+.track {
+  width: 60px;
+  flex-shrink: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.connector {
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  width: 1px;
+  bottom: -20px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.entry:last-child .connector {
+  display: none;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.dotAdded {
+  background: #65a637;
+}
+
+.dotChanged {
+  background: #0d72ff;
+}
+
+.dotFixed {
+  background: #ffac0d;
+}
+
+.dotDeprecated {
+  background: #71717a;
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+  padding-top: 0;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.versionBadge {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  background: #232329;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #a1a1aa;
+}
+
+.typeBadge {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.typeAdded {
+  color: #65a637;
+  background: rgba(101, 166, 55, 0.1);
+  border: 1px solid rgba(101, 166, 55, 0.2);
+}
+
+.typeChanged {
+  color: #0d72ff;
+  background: rgba(13, 114, 255, 0.1);
+  border: 1px solid rgba(13, 114, 255, 0.2);
+}
+
+.typeFixed {
+  color: #ffac0d;
+  background: rgba(255, 172, 13, 0.1);
+  border: 1px solid rgba(255, 172, 13, 0.2);
+}
+
+.typeDeprecated {
+  color: #71717a;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.date {
+  font-size: 11px;
+  color: #71717a;
+  margin-left: auto;
+}
+
+.description {
+  font-size: 13px;
+  color: #a1a1aa;
+  margin-top: 6px;
+  line-height: 1.5;
+}

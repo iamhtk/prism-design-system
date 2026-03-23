@@ -1,0 +1,104 @@
+/**
+ * Platform brand hex values are intentional exceptions for social brand colors.
+ */
+.root {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  border-radius: var(--border-radius-pill);
+  border-style: solid;
+  border-width: var(--border-width-none);
+  color: var(--color-neutral-white);
+  transition:
+    transform var(--duration-link) ease,
+    background-color var(--duration-link) ease,
+    border-color var(--duration-link) ease,
+    color var(--duration-link) ease;
+}
+
+.root:focus-visible {
+  outline: var(--border-width-sm) solid var(--color-primary-default);
+  outline-offset: var(--space-50);
+}
+
+.root:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.root:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.sizeXs {
+  width: var(--size-social-button-xs);
+  height: var(--size-social-button-xs);
+}
+
+.sizeSm {
+  width: var(--space-800);
+  height: var(--space-800);
+}
+
+.sizeMd {
+  width: var(--space-1000);
+  height: var(--space-1000);
+}
+
+.variantBrand,
+.variantPrimary {
+  color: var(--color-neutral-white);
+}
+
+.variantBrand.brandFacebook {
+  background-color: #1877f2;
+}
+
+.variantBrand.brandTwitter {
+  background-color: #1da1f2;
+}
+
+.variantBrand.brandLinkedin {
+  background-color: #0a66c2;
+}
+
+.variantBrand.brandYoutube {
+  background-color: #ff0000;
+}
+
+.variantBrand.brandInstagram {
+  background-color: #e1306c;
+}
+
+.variantBrand.brandTiktok {
+  background-color: var(--color-neutral-black);
+}
+
+.variantBrand.brandShare {
+  background-color: var(--color-neutral-450);
+}
+
+.variantPrimary {
+  background-color: var(--color-primary-default);
+  border-width: var(--border-width-none);
+}
+
+.variantOutlined {
+  background-color: transparent;
+  border-width: var(--border-width-xs);
+  border-color: var(--color-primary-default);
+  color: var(--color-primary-default);
+}
+
+.icon {
+  width: 55%;
+  height: 55%;
+}
+
+.icon path {
+  fill: currentColor;
+}

@@ -1,0 +1,132 @@
+.spacingRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-400);
+  padding: var(--space-200) var(--space-0);
+  border-bottom: var(--border-width-xs) solid rgba(255, 255, 255, 0.04);
+}
+
+.spacingToken {
+  width: 160px;
+  flex-shrink: 0;
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-body-xs);
+  color: var(--text-default-caption);
+}
+
+.spacingBar {
+  flex-shrink: 0;
+  height: var(--size-badge-dot);
+  border-radius: var(--border-radius-pill);
+  background-color: var(--color-primary-default);
+}
+
+.spacingPx {
+  font-family: var(--font-family-code);
+  font-size: var(--font-size-body-xs);
+  color: rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+}
+
+.gridExamples {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-800);
+}
+
+.gridExampleLabel {
+  font-size: var(--font-size-body-xs);
+  color: var(--text-default-caption);
+  margin-bottom: var(--space-300);
+}
+
+.gridExampleContainer {
+  /* TODO: no token for #1a1a1a — confirm with designer */
+  background-color: #1a1a1a;
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-600);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  min-width: 0;
+}
+
+.gridCols {
+  display: grid;
+  width: 100%;
+}
+
+.gridColsMobile {
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-400);
+}
+
+.gridColsTablet {
+  grid-template-columns: repeat(8, 1fr);
+  gap: var(--space-400);
+}
+
+.gridColsDesktop {
+  grid-template-columns: repeat(12, 1fr);
+  /* TODO: no --space-* token for 18px gutter — confirm with designer */
+  gap: 18px;
+}
+
+.gridCell {
+  height: var(--space-1000);
+  background-color: rgba(255, 103, 1, 0.15);
+  border-radius: var(--border-radius-sm);
+  border: var(--border-width-xs) solid rgba(255, 103, 1, 0.2);
+}
+
+.gridMeta {
+  font-size: var(--font-size-body-xs);
+  color: var(--text-default-caption);
+  margin-top: var(--space-300);
+}
+
+.principleBlock {
+  /* TODO: no token for #1a1a1a — confirm with designer */
+  background-color: #1a1a1a;
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-800);
+  border-left-width: var(--border-width-marketing-accent);
+  border-left-style: solid;
+  border-left-color: var(--color-primary-default);
+}
+
+.principleTitle {
+  font-size: var(--font-size-body-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-default-headings);
+  margin: var(--space-0) var(--space-0) var(--space-400);
+}
+
+.principleBody {
+  font-size: var(--font-size-body-sm);
+  color: var(--text-default-caption);
+  line-height: var(--line-height-body);
+  margin: var(--space-0) var(--space-0) var(--space-600);
+}
+
+@media (max-width: 480px) {
+  .spacingRow {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--space-300);
+  }
+
+  .spacingToken {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .spacingPx {
+    margin-left: auto;
+  }
+
+  .gridExampleContainer {
+    padding: var(--space-500);
+  }
+}

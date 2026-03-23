@@ -1,0 +1,173 @@
+/* Homepage shell — matches docs site palette (explicit values per design). */
+.pageRoot {
+  min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  background: #1b1b1f;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+.pageRoot::-webkit-scrollbar {
+  width: 8px;
+}
+
+.pageRoot::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pageRoot::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.announcementBar {
+  background: rgba(255, 103, 1, 0.12);
+  border-bottom: 1px solid rgba(255, 103, 1, 0.2);
+  padding: 8px 24px;
+  text-align: center;
+  font-size: 13px;
+  color: #a1a1aa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-family: var(--font-family-body);
+}
+
+.docsLink {
+  color: #ff6701;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 103, 1, 0.4);
+}
+
+.docsLink:hover {
+  color: #ff8534;
+  border-bottom-color: rgba(255, 103, 1, 0.6);
+}
+
+.mainInner {
+  padding-bottom: 80px;
+}
+
+.pageTitle {
+  font-family: var(--font-family-headings);
+  font-size: 32px;
+  font-weight: 700;
+  color: #f5f5f7;
+  margin: 48px 0 16px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.docLinks {
+  color: #a1a1aa;
+  font-size: 14px;
+  margin: 0 0 8px;
+  line-height: 1.65;
+  font-family: var(--font-family-body);
+}
+
+.docLinkInline {
+  color: #ff6701;
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 16px;
+  border-bottom: 1px solid rgba(255, 103, 1, 0.4);
+}
+
+.docLinkInline:hover {
+  color: #ff8534;
+}
+
+/* Typography harmonization for demo chrome (not component internals). */
+.mainInner :global(.buttonDemo_heading) {
+  color: #f5f5f7;
+  font-family: var(--font-family-headings);
+}
+
+.mainInner :global(.radioDemo_legend),
+.mainInner :global(.fieldDemo_stateLabel),
+.mainInner :global(.buttonDemo_stateLabel) {
+  color: #71717a;
+}
+
+.mainInner :global(.linkDemo_paragraph) {
+  color: #a1a1aa;
+}
+
+.mainInner :global(.tabBarDemo_content p),
+.mainInner :global(.dividerVerticalDemo_text) {
+  color: #a1a1aa;
+}
+
+/* Standalone demo sections (not inside DemoBlock) match docs demo card chrome. */
+.mainInner :global(> .buttonDemo_section) {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 56px;
+  padding: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background-color: #232329;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@media (max-width: 768px) {
+  .announcementBar {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .pageTitle {
+    font-size: 26px;
+    margin: 32px 0 12px;
+  }
+
+  .docLinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+
+  .docLinkInline {
+    margin-right: 0;
+  }
+
+  .mainInner :global(> .buttonDemo_section) {
+    padding: 20px 16px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageTitle {
+    font-size: 22px;
+  }
+
+  .announcementBar {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .pageTitle {
+    font-size: 20px;
+    overflow-wrap: anywhere;
+  }
+
+  .announcementBar {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .mainInner :global(> .buttonDemo_section) {
+    padding: 14px 10px;
+  }
+}

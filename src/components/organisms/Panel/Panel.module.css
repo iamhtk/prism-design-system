@@ -1,0 +1,109 @@
+.backdrop {
+  position: fixed;
+  inset: var(--space-0);
+  z-index: var(--z-index-panel-backdrop);
+  background-color: var(--color-backdrop-panel);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-panel-slide) ease;
+}
+
+.backdropVisible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.panel {
+  position: fixed;
+  top: var(--space-0);
+  z-index: var(--z-index-panel);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: var(--width-panel-default);
+  height: 100vh;
+  max-height: 100dvh;
+  overflow: hidden;
+  font-family: var(--font-family-body);
+  background-color: var(--color-tooltip-surface);
+  pointer-events: none;
+  transition: transform var(--duration-panel-slide) ease;
+}
+
+.panelOpen {
+  pointer-events: auto;
+}
+
+.sideLeft {
+  left: var(--space-0);
+  box-shadow: var(--shadow-panel-from-left);
+  transform: translateX(-100%);
+}
+
+.sideLeftOpen {
+  transform: translateX(0);
+}
+
+.sideRight {
+  right: var(--space-0);
+  box-shadow: var(--shadow-panel-from-right);
+  transform: translateX(100%);
+}
+
+.sideRightOpen {
+  transform: translateX(0);
+}
+
+.header {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-600) var(--space-800);
+  border-bottom: var(--border-width-xs) solid var(--color-table-row-divider);
+}
+
+.title {
+  margin: var(--space-0);
+  font-family: var(--font-family-headings);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-headings);
+  color: var(--text-default-headings);
+}
+
+.closeBtn {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-600);
+  height: var(--space-600);
+  margin: var(--space-0);
+  padding: var(--space-0);
+  font-size: var(--space-600);
+  line-height: 1;
+  color: var(--text-default-caption);
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  transition: color var(--duration-link) ease;
+}
+
+.closeBtn:hover {
+  color: var(--text-default-body);
+}
+
+.closeBtn:focus-visible {
+  outline: var(--border-width-sm) solid var(--color-primary-default);
+  outline-offset: var(--space-50);
+}
+
+.body {
+  flex: 1 1 auto;
+  padding: var(--space-800);
+  overflow-x: hidden;
+  overflow-y: auto;
+}

@@ -1,0 +1,64 @@
+.root {
+  position: fixed;
+  bottom: var(--offset-scroll-to-top-bottom);
+  z-index: var(--z-index-scroll-to-top);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-scroll-to-top-button);
+  height: var(--size-scroll-to-top-button);
+  margin: var(--space-0);
+  margin-bottom: var(--space-200);
+  padding: var(--space-0);
+  font-size: var(--font-size-scroll-to-top-arrow);
+  line-height: 1;
+  color: var(--color-neutral-white);
+  cursor: pointer;
+  background-color: var(--color-primary-default);
+  border: none;
+  border-radius: var(--border-radius-pill);
+  box-shadow: var(--shadow-scroll-to-top);
+  opacity: 0;
+  transform: scale(var(--scale-scroll-to-top-hidden));
+  pointer-events: none;
+  transition:
+    opacity var(--duration-scroll-to-top) ease,
+    transform var(--duration-scroll-to-top) ease,
+    background-color var(--duration-link) ease;
+}
+
+.visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.root.visible:hover:not(:disabled) {
+  background-color: var(--color-interactive-primary-hover);
+  transform: scale(var(--scale-scroll-to-top-hover));
+}
+
+.positionBottomRight {
+  right: var(--offset-scroll-to-top-edge);
+  left: auto;
+}
+
+.positionBottomLeft {
+  right: auto;
+  left: var(--offset-scroll-to-top-edge);
+}
+
+.root:focus {
+  outline: none;
+}
+
+.root:focus-visible {
+  outline: var(--border-width-sm) solid var(--color-primary-default);
+  outline-offset: var(--space-100);
+}
+
+.root:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

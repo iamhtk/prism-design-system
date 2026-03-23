@@ -1,0 +1,89 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-200);
+  font-family: var(--font-family-body);
+}
+
+.svgWrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.svg {
+  display: block;
+}
+
+.sizeSm {
+  width: var(--size-progress-circle-sm);
+  height: var(--size-progress-circle-sm);
+}
+
+.sizeMd {
+  width: var(--size-progress-circle-md);
+  height: var(--size-progress-circle-md);
+}
+
+.sizeLg {
+  width: var(--size-progress-circle-lg);
+  height: var(--size-progress-circle-lg);
+}
+
+.track {
+  fill: none;
+  stroke: var(--color-surface-progress-track);
+}
+
+.progress {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.progressAnimated {
+  transition: stroke-dashoffset var(--duration-progress-circle-offset) ease-in-out;
+}
+
+.variantPrimary {
+  stroke: var(--color-primary-default);
+}
+
+.variantSuccess {
+  stroke: var(--color-success-default);
+}
+
+.variantWarning {
+  stroke: var(--color-warning-default);
+}
+
+.variantError {
+  stroke: var(--color-error-default);
+}
+
+.variantInfo {
+  stroke: var(--color-information-default);
+}
+
+.value {
+  fill: var(--text-default-body);
+  font-weight: var(--font-weight-bold);
+}
+
+.valueSm {
+  font-size: var(--font-size-body-sm);
+}
+
+.valueMd {
+  font-size: var(--font-size-body-xl);
+}
+
+.valueLg {
+  font-size: var(--font-size-h4);
+}
+
+.label {
+  font-size: var(--font-size-body-xs);
+  font-weight: var(--font-weight-regular);
+  color: var(--text-default-caption);
+  text-align: center;
+}

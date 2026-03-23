@@ -1,0 +1,53 @@
+.root {
+  display: grid;
+  width: 100%;
+}
+
+.responsive {
+  /* breakpoint modifiers below */
+}
+
+.gapSm {
+  gap: var(--space-400);
+}
+
+.gapMd {
+  gap: var(--space-800);
+}
+
+.gapLg {
+  gap: var(--space-1000);
+}
+
+.cols1 {
+  grid-template-columns: 1fr;
+}
+
+.cols2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.cols3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cols4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Matches --breakpoint-grid-lg (1024px): two columns below this width */
+@media (max-width: 1023px) {
+  .responsive.cols3,
+  .responsive.cols4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Matches --breakpoint-grid-md (768px): one column below this width */
+@media (max-width: 767px) {
+  .responsive.cols2,
+  .responsive.cols3,
+  .responsive.cols4 {
+    grid-template-columns: 1fr;
+  }
+}

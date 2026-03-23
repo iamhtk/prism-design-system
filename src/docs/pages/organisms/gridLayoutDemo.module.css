@@ -1,0 +1,9 @@
+.cell {
+  padding: var(--space-400);
+  border-radius: var(--border-radius-md);
+  background-color: rgba(255, 103, 1, 0.12);
+  border: var(--border-width-xs) solid rgba(255, 103, 1, 0.25);
+  text-align: center;
+  color: var(--text-default-body);
+  font-size: var(--font-size-body-sm);
+}

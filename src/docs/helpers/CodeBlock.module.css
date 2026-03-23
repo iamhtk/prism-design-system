@@ -1,0 +1,117 @@
+.wrapper {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.header {
+  background: #1a1a1f;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 38px;
+  box-sizing: border-box;
+}
+
+.language {
+  font-size: 11px;
+  color: #71717a;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.04em;
+}
+
+.copyBtn {
+  font-size: 11px;
+  color: #ff6701;
+  background: none;
+  border: 1px solid rgba(255, 103, 1, 0.2);
+  cursor: pointer;
+  padding: 3px 10px;
+  border-radius: 5px;
+  font-family: var(--font-family-body);
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.copyBtn:hover {
+  background-color: rgba(255, 103, 1, 0.12);
+  border-color: rgba(255, 103, 1, 0.4);
+}
+
+.copied {
+  color: #65a637;
+  border-color: rgba(101, 166, 55, 0.3);
+}
+
+.pre {
+  margin: 0;
+  padding: 24px;
+  background-color: #0f0f12;
+  overflow-x: auto;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  color: #e4e4e7;
+  line-height: 1.75;
+  white-space: pre;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+.pre::-webkit-scrollbar {
+  height: 4px;
+}
+
+.pre::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.lineNumbers {
+  display: flex;
+  background-color: #0f0f12;
+  padding: 24px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+.lineNumCol {
+  color: rgba(255, 255, 255, 0.2);
+  min-width: 36px;
+  padding-right: 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  margin-right: 16px;
+  user-select: none;
+  text-align: right;
+  line-height: 1.75;
+  flex-shrink: 0;
+}
+
+.lineNumCol div {
+  font-size: 12px;
+}
+
+.codeCol {
+  flex: 1;
+  overflow-x: auto;
+  min-width: 0;
+}
+
+.codeCol .pre {
+  padding: 0;
+  background: transparent;
+}
+
+.code {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  color: #e4e4e7;
+  line-height: 1.75;
+  white-space: pre;
+}

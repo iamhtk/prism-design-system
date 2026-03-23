@@ -1,0 +1,14 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.gapSm {
+  gap: var(--space-200);
+}
+
+.gapMd {
+  gap: var(--space-400);
+}

@@ -1,0 +1,131 @@
+.root {
+  position: relative;
+  display: inline-flex;
+  font-family: var(--font-family-body);
+}
+
+.trigger {
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.anchor {
+  position: absolute;
+  z-index: var(--z-index-popover);
+}
+
+.surface {
+  position: relative;
+  box-sizing: border-box;
+  width: var(--width-popover-default);
+  padding: var(--space-500);
+  background-color: var(--color-dropdown-surface);
+  border-width: var(--border-width-xs);
+  border-style: solid;
+  border-color: var(--color-tooltip-border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-overlay-floating);
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  transition:
+    opacity var(--duration-link) ease,
+    transform var(--duration-link) ease;
+}
+
+.surfaceOpen {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* Arrow shared */
+.surface::after {
+  content: '';
+  position: absolute;
+  width: var(--space-0);
+  height: var(--space-0);
+  border-style: solid;
+}
+
+/* Bottom: popover below trigger, arrow on top pointing up */
+.anchorBottom {
+  top: calc(100% + var(--size-popover-arrow));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.anchorBottom .surface::after {
+  bottom: calc(100% + var(--border-width-xs));
+  left: 50%;
+  margin-left: calc(-1 * var(--size-popover-arrow));
+  border-width: 0 var(--size-popover-arrow) var(--size-popover-arrow)
+    var(--size-popover-arrow);
+  border-color: transparent transparent var(--color-dropdown-surface) transparent;
+}
+
+/* Top: popover above, arrow bottom pointing down */
+.anchorTop {
+  bottom: calc(100% + var(--size-popover-arrow));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.anchorTop .surface::after {
+  top: calc(100% + var(--border-width-xs));
+  left: 50%;
+  margin-left: calc(-1 * var(--size-popover-arrow));
+  border-width: var(--size-popover-arrow) var(--size-popover-arrow) 0
+    var(--size-popover-arrow);
+  border-color: var(--color-dropdown-surface) transparent transparent transparent;
+}
+
+/* Left: popover left of trigger, arrow on right */
+.anchorLeft {
+  top: 50%;
+  right: calc(100% + var(--size-popover-arrow));
+  transform: translateY(-50%);
+}
+
+.anchorLeft .surface::after {
+  top: 50%;
+  left: 100%;
+  margin-top: calc(-1 * var(--size-popover-arrow));
+  margin-left: var(--border-width-xs);
+  border-width: var(--size-popover-arrow) 0 var(--size-popover-arrow)
+    var(--size-popover-arrow);
+  border-color: transparent transparent transparent var(--color-dropdown-surface);
+}
+
+/* Right */
+.anchorRight {
+  top: 50%;
+  left: calc(100% + var(--size-popover-arrow));
+  transform: translateY(-50%);
+}
+
+.anchorRight .surface::after {
+  top: 50%;
+  right: 100%;
+  margin-top: calc(-1 * var(--size-popover-arrow));
+  margin-right: var(--border-width-xs);
+  border-width: var(--size-popover-arrow) var(--size-popover-arrow)
+    var(--size-popover-arrow) 0;
+  border-color: transparent var(--color-dropdown-surface) transparent transparent;
+}
+
+.title {
+  margin: var(--space-0);
+  margin-bottom: var(--space-300);
+  font-size: var(--font-size-body-md);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-body);
+  color: var(--text-default-headings);
+}
+
+.content {
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  color: var(--text-default-body);
+}

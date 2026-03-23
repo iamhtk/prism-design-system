@@ -1,0 +1,182 @@
+.root {
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  font-family: var(--font-family-body);
+  background-color: var(--color-neutral-900);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-profile-card);
+}
+
+.rootFull {
+  display: grid;
+  max-width: var(--width-profile-card-full);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: auto auto;
+}
+
+.rootCompact {
+  display: flex;
+  max-width: var(--width-profile-card-compact);
+  flex-direction: column;
+}
+
+.left {
+  box-sizing: border-box;
+  padding: var(--space-600);
+}
+
+.rootCompact .left {
+  padding: var(--space-400);
+}
+
+.topRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-300);
+}
+
+.brandRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-300);
+}
+
+.linkedinBadge {
+  display: inline-flex;
+  width: var(--size-linkedin-badge);
+  height: var(--size-linkedin-badge);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-body-xs);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  color: var(--text-default-headings);
+  text-decoration: none;
+  background-color: var(--color-information-default);
+  border-radius: var(--border-radius-sm);
+}
+
+.linkedinBadge:hover {
+  color: var(--text-default-headings);
+  opacity: 0.92;
+}
+
+.linkedinBadge:focus {
+  outline: none;
+}
+
+.linkedinBadge:focus-visible {
+  outline: var(--border-width-sm) solid var(--color-primary-default);
+  outline-offset: var(--space-50);
+}
+
+.companyLogo {
+  display: block;
+  max-width: var(--width-company-logo-max);
+  height: var(--space-600);
+  object-fit: contain;
+  object-position: left center;
+}
+
+.name {
+  margin: var(--space-0);
+  margin-top: var(--space-300);
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-body);
+  color: var(--text-default-headings);
+}
+
+.role {
+  margin: var(--space-0);
+  margin-top: var(--space-100);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  color: var(--text-default-caption);
+}
+
+.company {
+  margin: var(--space-0);
+  margin-top: var(--space-100);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  color: var(--text-default-caption);
+}
+
+.location {
+  margin: var(--space-0);
+  margin-top: var(--space-100);
+  font-size: var(--font-size-body-xs);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  color: var(--text-default-caption);
+}
+
+.description {
+  display: -webkit-box;
+  max-height: calc(4 * 1.5 * var(--font-size-body-xs));
+  margin: var(--space-0);
+  margin-top: var(--space-300);
+  overflow: hidden;
+  font-size: var(--font-size-body-xs);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  color: var(--text-default-body);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.media {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: stretch;
+}
+
+.mediaLink,
+.mediaStatic {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.thumbnail {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+}
+
+.thumbnailFallback {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-neutral-900);
+  background-image: var(--gradient-banner-fallback-bg);
+  border-radius: var(--border-radius-md);
+}
+
+.ctaSlot {
+  grid-column: 1;
+  grid-row: 2;
+  box-sizing: border-box;
+  padding: var(--space-0) var(--space-600) var(--space-600);
+}
+
+.ctaSlotCompact {
+  box-sizing: border-box;
+  padding: var(--space-0) var(--space-400) var(--space-400);
+}
+
+.ctaSlot :global(button),
+.ctaSlotCompact :global(button) {
+  width: 100%;
+  font-size: var(--font-size-body-xs);
+}

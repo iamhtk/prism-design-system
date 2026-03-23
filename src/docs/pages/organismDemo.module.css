@@ -1,0 +1,11 @@
+.scaledWrap {
+  height: 400px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.scaledInner {
+  transform: scale(0.7);
+  transform-origin: top left;
+  width: calc(100% / 0.7);
+}

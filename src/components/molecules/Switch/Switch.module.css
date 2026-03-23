@@ -1,0 +1,117 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-200);
+  width: 100%;
+  font-family: var(--font-family-body);
+}
+
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-300);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  font-family: var(--font-family-body);
+}
+
+.wrapper.disabled,
+.root.disabled {
+  cursor: not-allowed;
+}
+
+.trackWrap {
+  position: relative;
+  flex-shrink: 0;
+  width: var(--space-1000);
+  height: var(--size-switch-track-height);
+}
+
+.native {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: inherit;
+  opacity: 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.native:disabled {
+  cursor: not-allowed;
+}
+
+.track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--space-1000);
+  height: var(--size-switch-track-height);
+  border-radius: var(--border-radius-pill);
+  background-color: var(--color-neutral-60);
+  transition:
+    background-color var(--duration-switch) ease,
+    outline-color var(--duration-link) ease;
+}
+
+.thumb {
+  position: absolute;
+  top: 50%;
+  left: var(--space-50);
+  width: var(--font-size-body-lg);
+  height: var(--font-size-body-lg);
+  border-radius: var(--border-radius-pill);
+  background-color: var(--color-neutral-white);
+  transform: translateY(-50%);
+  transition: left var(--duration-switch) ease;
+}
+
+.native:checked ~ .track .thumb {
+  left: var(--space-500);
+}
+
+.native:focus-visible ~ .track {
+  outline: var(--border-width-sm) solid var(--color-primary-default);
+  outline-offset: var(--space-50);
+}
+
+.wrapper:not(.disabled) .root:hover .native:not(:checked) ~ .track {
+  background-color: var(--color-neutral-90);
+}
+
+.wrapper:not(.disabled) .root:hover .native:checked ~ .track {
+  background-color: var(--color-interactive-primary-hover);
+}
+
+.native:checked ~ .track {
+  background-color: var(--color-primary-default);
+}
+
+.wrapper.disabled .track {
+  background-color: var(--color-disabled-default);
+}
+
+.labelText {
+  font-size: var(--font-size-body-md);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  color: var(--text-default-body);
+}
+
+.hint {
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body-xs);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body);
+  color: var(--text-default-caption);
+}

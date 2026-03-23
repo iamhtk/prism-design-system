@@ -1,0 +1,62 @@
+.page {
+  padding: var(--space-200) var(--space-0);
+}
+
+.breadcrumb {
+  font-size: var(--font-size-body-xs);
+  color: var(--text-default-caption);
+  margin-bottom: var(--space-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.breadcrumb span {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.title {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-default);
+  margin: var(--space-0) var(--space-0) var(--space-1000);
+  line-height: var(--line-height-headings);
+}
+
+.coming {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-1600) var(--space-1000);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  gap: var(--space-400);
+}
+
+.comingIcon {
+  font-size: var(--font-size-h1);
+}
+
+.comingText {
+  font-size: var(--font-size-body-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-default-body);
+  margin: var(--space-0);
+}
+
+.comingHint {
+  font-size: var(--font-size-body-sm);
+  color: var(--text-default-caption);
+  margin: var(--space-0);
+  max-width: 400px;
+  line-height: var(--line-height-body);
+}
+
+.comingHint code {
+  font-family: var(--font-family-code);
+  color: var(--color-tertiary-default);
+  background: rgba(255, 172, 13, 0.1);
+  padding: var(--space-25) var(--space-100);
+  border-radius: var(--border-radius-sm);
+}

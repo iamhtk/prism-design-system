@@ -1,0 +1,87 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-100);
+  font-family: var(--font-family-body);
+}
+
+.btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-900);
+  height: var(--space-900);
+  margin: 0;
+  padding: 0;
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  color: var(--text-default-body);
+  cursor: pointer;
+  background-color: transparent;
+  border-width: var(--border-width-xs);
+  border-style: solid;
+  border-color: var(--color-tooltip-border);
+  border-radius: var(--border-radius-md);
+  transition:
+    background-color var(--duration-link) ease,
+    border-color var(--duration-link) ease,
+    color var(--duration-link) ease;
+}
+
+.btn:hover:not(:disabled):not(.ellipsis):not(.current) {
+  background-color: var(--color-option-hover-overlay);
+  border-color: var(--color-primary-default);
+  color: var(--color-primary-default);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:focus-visible {
+  outline: var(--border-width-sm) solid var(--color-primary-default);
+  outline-offset: var(--space-50);
+}
+
+.current {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-on-color-body);
+  cursor: default;
+  background-color: var(--color-primary-default);
+  border-color: var(--color-primary-default);
+}
+
+.current:hover {
+  background-color: var(--color-primary-default);
+  border-color: var(--color-primary-default);
+  color: var(--text-on-color-body);
+}
+
+.disabled {
+  color: var(--color-disabled-default);
+  cursor: not-allowed;
+  border-color: var(--color-disabled-subtle);
+}
+
+.disabled:hover {
+  background-color: transparent;
+  border-color: var(--color-disabled-subtle);
+  color: var(--color-disabled-default);
+}
+
+.ellipsis {
+  cursor: default;
+  border-color: transparent;
+  background: transparent;
+}
+
+.ellipsis:hover {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-default-body);
+}

@@ -1,0 +1,105 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: 16px;
+}
+
+.item {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1b1b1f;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemDo {
+  border: 1px solid rgba(101, 166, 55, 0.2);
+  border-left: 2px solid #65a637;
+}
+
+.itemDont {
+  border: 1px solid rgba(255, 39, 13, 0.15);
+  border-left: 2px solid #ff270d;
+}
+
+.header {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.headerDo {
+  background: rgba(101, 166, 55, 0.12);
+  border-bottom: 1px solid rgba(101, 166, 55, 0.2);
+}
+
+.headerDont {
+  background: rgba(255, 39, 13, 0.12);
+  border-bottom: 1px solid rgba(255, 39, 13, 0.2);
+}
+
+.iconDo {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid #65a637;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 700;
+  color: #65a637;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.iconDont {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid #ff270d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 700;
+  color: #ff270d;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.titleDo {
+  font-size: 11px;
+  font-weight: 700;
+  color: #65a637;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.titleDont {
+  font-size: 11px;
+  font-weight: 700;
+  color: #ff270d;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.demo {
+  background: #232329;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+.description {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #a1a1aa;
+  line-height: 1.55;
+  background: #1b1b1f;
+}

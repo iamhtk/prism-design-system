@@ -1,0 +1,25 @@
+.root {
+  position: fixed;
+  right: var(--space-0);
+  bottom: var(--space-0);
+  left: var(--space-0);
+  z-index: var(--z-index-sticky-bar);
+  padding: var(--space-400) var(--space-600);
+  background-color: var(--color-sticky-bar-bg);
+  border-top: var(--border-width-xs) solid var(--color-footer-divider);
+  backdrop-filter: blur(var(--blur-sticky-bar));
+  transition: transform var(--duration-panel-slide) ease;
+}
+
+.inner {
+  max-width: var(--width-modal-md);
+  margin: var(--space-0) auto;
+}
+
+.hidden {
+  transform: translateY(100%);
+}
+
+.visible {
+  transform: translateY(0);
+}
